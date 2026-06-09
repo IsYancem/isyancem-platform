@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: isyancem_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: isyancem
+      POSTGRES_PASSWORD: isyancem_password
+      POSTGRES_DB: isyancem_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - isyancem_postgres_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer:latest
+    container_name: isyancem_adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+volumes:
+  isyancem_postgres_data:

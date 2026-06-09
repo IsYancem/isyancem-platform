@@ -2,10 +2,21 @@
   "name": "isyancem-platform",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "dev": "turbo dev",
+    "dev:web": "pnpm --filter web dev",
+    "dev:api": "pnpm --filter api start:dev",
+
+    "db:up": "docker compose -f docker/docker-compose.yml up -d",
+    "db:down": "docker compose -f docker/docker-compose.yml down",
+    "db:reset": "docker compose -f docker/docker-compose.yml down -v",
+
+    "prisma:studio": "pnpm -C ./apps/api prisma studio",
+    "prisma:generate": "pnpm -C ./apps/api prisma generate",
+    "prisma:migrate": "pnpm -C ./apps/api prisma migrate dev",
+
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
