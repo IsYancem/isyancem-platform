@@ -2,21 +2,34 @@
   --background: #020607;
   --foreground: #f5f7f8;
 
+  /* Principal: morado/vino dominante */
   --accent: #4a162d;
-  --accent-soft: #d84f8f;
-  --accent-light: #ff7ab8;
+  --accent-soft: #8b2f58;
+  --accent-light: #c05a86;
   --accent-dark: #2a0b19;
   --accent-deep: #16050d;
 
   --accent-rgb: 74, 22, 45;
-  --accent-soft-rgb: 216, 79, 143;
-  --accent-light-rgb: 255, 122, 184;
+  --accent-soft-rgb: 139, 47, 88;
+  --accent-light-rgb: 192, 90, 134;
   --accent-dark-rgb: 42, 11, 25;
+
+  /* Secundario: dorado sutil, solo para acentos pequeños */
+  --secondary: #c9a86a;
+  --secondary-soft: #d8bb7a;
+  --secondary-light: #ead7a0;
+  --secondary-dark: #8f713d;
+
+  --secondary-rgb: 201, 168, 106;
+  --secondary-soft-rgb: 216, 187, 122;
+  --secondary-light-rgb: 234, 215, 160;
+  --secondary-dark-rgb: 143, 113, 61;
 
   --ink-900: #020607;
   --ink-800: #070a0d;
   --ink-700: #0b1015;
   --ink-600: #11161c;
+
   --line: rgba(245, 247, 248, 0.08);
   --line-strong: rgba(245, 247, 248, 0.14);
   --muted: rgba(245, 247, 248, 0.52);
@@ -348,4 +361,22 @@ html.no-motion .reveal{opacity:1!important;transform:none!important;transition:n
   .stats{grid-template-columns:1fr}
   .stat+.stat{border-left:0;border-top:1px solid var(--line)}
   .hero-cta .btn{flex:1;justify-content:center}
+}
+
+.stat .k .sq {
+  background: var(--secondary);
+  box-shadow: 0 0 10px rgba(var(--secondary-rgb), 0.6);
+}
+
+.wordmark .brand-tag {
+  color: var(--secondary-light);
+}
+
+.foot-brand .brand-tag {
+  color: var(--secondary-light);
+}
+
+.nav-links a.active::after {
+  background: var(--secondary);
+  box-shadow: 0 0 8px rgba(var(--secondary-rgb), 0.8);
 }
