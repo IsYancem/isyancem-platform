@@ -1,21 +1,28 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Orbitron } from "next/font/google";
+import Script from "next/script";
+import { Hanken_Grotesk, JetBrains_Mono, Newsreader } from "next/font/google";
 import "./globals.css";
 
-const orbitron = Orbitron({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-brand",
-  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-serif",
+  weight: ["400", "500", "600"],
 });
 
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+const hankenGrotesk = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "ISYANCEM | Full Stack Developer",
+  title: "ISYANCEM — Desarrollador Full Stack",
   description:
     "Portafolio profesional de Abraham Yance, desarrollador full stack especializado en sistemas industriales, integraciones y automatización.",
 };
@@ -27,7 +34,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${orbitron.variable} ${geistMono.variable}`}>
+      <body
+        className={`${newsreader.variable} ${hankenGrotesk.variable} ${jetBrainsMono.variable}`}
+      >
+        <Script src="/image-slot.js" strategy="beforeInteractive" />
         {children}
       </body>
     </html>
